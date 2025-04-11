@@ -39,7 +39,7 @@ btnExecuteCommand.addEventListener('click', async () => {
                 let yCoordinate = coordinates[1];
                 let direction = coordinates[2].toLowerCase();
 
-                let targetDiv = document.querySelector('.x-' + xCoordinate + ' .y-' + yCoordinate);
+                let targetDiv = document.querySelector(`.x-${xCoordinate} .y-${yCoordinate}`);
                 if (targetDiv == null) {
                     addTextToCommandDiv(internalCommand);
                     robotFallFromTable();
@@ -47,7 +47,7 @@ btnExecuteCommand.addEventListener('click', async () => {
                 }
                 clearDiv(targetDiv);
                 const imgElement = document.createElement('img');
-                imgElement.src = imgRelativePath + direction + '.png';
+                imgElement.src = `${imgRelativePath}${direction}.png`;
                 imgElement.width = '60';
                 targetDiv.appendChild(imgElement);
             }
@@ -145,9 +145,9 @@ function moveImage(imgNameWithoutExtension, xCoordinate, yCoordinate) {
     }
     let targetDiv = document.querySelector('img').closest('div');
     clearDiv(targetDiv);
-    targetDiv = document.querySelector('.x-' + xCoordinate + ' .y-' + yCoordinate);
+    targetDiv = document.querySelector(`.x-${xCoordinate} .y-${yCoordinate}`);
     const imgElement = document.createElement('img');
-    imgElement.src = imgRelativePath + imgNameWithoutExtension + '.png';
+    imgElement.src = `${imgRelativePath}${imgNameWithoutExtension}.png`;
     imgElement.width = '60';
     targetDiv.appendChild(imgElement);
 }
